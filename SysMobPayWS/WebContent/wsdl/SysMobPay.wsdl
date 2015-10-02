@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://http://fri.uni-lj.si/prpo/SysMobPay/storitve/sprejemanjeNarocil" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SysMobPay" 
+targetNamespace="http://http://fri.uni-lj.si/prpo/SysMobPay/storitve/sprejemanjeNarocil"
+xmlns:sporocila="http://fri.uni-lj.si/prpo/SysMobPay/sporocila">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://http://fri.uni-lj.si/prpo/SysMobPay/storitve/sprejemanjeNarocil">
+      <xsd:import schemaLocation="SysMobPaySporocila.xsd"
+      	namespace="http://fri.uni-lj.si/prpo/SysMobPay/sporocila" />
+      <xsd:element name="SprejmiNarocila">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="input" type="sporocila:SysMobPaySporocilo"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SprejmiNarocilaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="output" type="sporocila:SysMobPayOdgovorSporocilo"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SprejmiNarocilaRequest">
+    <wsdl:part element="tns:SprejmiNarocila" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SprejmiNarocilaResponse">
+    <wsdl:part element="tns:SprejmiNarocilaResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="SysMobPayPort">
+    <wsdl:operation name="SprejmiNarocila">
+      <wsdl:input message="tns:SprejmiNarocilaRequest"/>
+      <wsdl:output message="tns:SprejmiNarocilaResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SysMobPaySOAP" type="tns:SysMobPayPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SprejmiNarocila">
+      <soap:operation soapAction="http://http://fri.uni-lj.si/prpo/SysMobPay/storitve/sprejemanjeNarocil/SprejmiNarocila"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SysMobPay">
+    <wsdl:port binding="tns:SysMobPaySOAP" name="SysMobPaySOAP">
+      <soap:address location="http://fri.uni-lj.si"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

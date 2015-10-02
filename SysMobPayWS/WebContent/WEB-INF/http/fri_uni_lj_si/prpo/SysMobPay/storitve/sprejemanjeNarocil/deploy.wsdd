@@ -1,0 +1,74 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from SysMobPay WSDL service -->
+
+  <service name="SysMobPaySOAP" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://http://fri.uni-lj.si/prpo/SysMobPay/storitve/sprejemanjeNarocil"/>
+      <parameter name="wsdlServiceElement" value="SysMobPay"/>
+      <parameter name="schemaQualified" value="http://fri.uni-lj.si/prpo/SysMobPay/tipi,http://fri.uni-lj.si/prpo/SysMobPay/sporocila"/>
+      <parameter name="schemaUnqualified" value="http://http://fri.uni-lj.si/prpo/SysMobPay/storitve/sprejemanjeNarocil"/>
+      <parameter name="wsdlServicePort" value="SysMobPaySOAP"/>
+      <parameter name="className" value="http.fri_uni_lj_si.prpo.SysMobPay.storitve.sprejemanjeNarocil.SysMobPaySOAPSkeleton"/>
+      <parameter name="wsdlPortType" value="SysMobPayPort"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+
+      <typeMapping
+        xmlns:ns="http://fri.uni-lj.si/prpo/SysMobPay/tipi"
+        qname="ns:AddressTip"
+        type="java:si.uni_lj.fri.prpo.SysMobPay.tipi.AddressTip"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://fri.uni-lj.si/prpo/SysMobPay/sporocila"
+        qname="ns:SysMobPaySporocilo"
+        type="java:si.uni_lj.fri.prpo.SysMobPay.sporocila.SysMobPaySporocilo"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://fri.uni-lj.si/prpo/SysMobPay/tipi"
+        qname="ns:UserTip"
+        type="java:si.uni_lj.fri.prpo.SysMobPay.tipi.UserTip"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://fri.uni-lj.si/prpo/SysMobPay/sporocila"
+        qname="ns:SysMobPayOdgovorSporocilo"
+        type="java:si.uni_lj.fri.prpo.SysMobPay.sporocila.SysMobPayOdgovorSporocilo"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://fri.uni-lj.si/prpo/SysMobPay/tipi"
+        qname="ns:WebOrderTip"
+        type="java:si.uni_lj.fri.prpo.SysMobPay.tipi.WebOrderTip"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://fri.uni-lj.si/prpo/SysMobPay/tipi"
+        qname="ns:SysMobPayTip"
+        type="java:si.uni_lj.fri.prpo.SysMobPay.tipi.WebOrderTip[]"
+        innerType="cmp-ns:WebOrderTip" xmlns:cmp-ns="http://fri.uni-lj.si/prpo/SysMobPay/tipi"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

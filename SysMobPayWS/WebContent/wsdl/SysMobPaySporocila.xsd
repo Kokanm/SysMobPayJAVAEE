@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tipi="http://fri.uni-lj.si/prpo/SysMobPay/tipi" elementFormDefault="qualified" targetNamespace="http://fri.uni-lj.si/prpo/SysMobPay/sporocila">
+	<import namespace="http://fri.uni-lj.si/prpo/SysMobPay/tipi" schemaLocation="SysMobPayTipi.xsd"/>
+	<complexType name="SysMobPaySporocilo">
+		<sequence>
+			<element name="orderRequest" type="tipi:SysMobPayTip"/>
+		</sequence>
+	</complexType>
+	<complexType name="SysMobPayOdgovorSporocilo">
+		<sequence>
+			<element name="orderReceived" type="boolean"/>
+		</sequence>
+	</complexType>
+</schema>

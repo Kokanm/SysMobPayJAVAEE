@@ -1,0 +1,15 @@
+
+<div class="row">
+	<h2>Orders review</h2>
+	<div class="col-sm-6 col-md-4" ng-repeat="order in orders">
+		<div class="thumbnail">
+			<img src="http://placehold.it/350x200">
+			<div class="caption">
+				<h3>
+					<a href="#/sysmobpay/{{order.orderID}}">Naročilo {{order.id}}</a>
+				</h3>
+			</div>
+			<p>Prejeto {{order.dateOfOrder | date:'yyyy-MM-dd'}}</p>
+		</div>
+	</div>
+</div>

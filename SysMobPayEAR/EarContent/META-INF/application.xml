@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd" version="7">
+  <display-name>SysMobPayEAR</display-name>
+  <module>
+    <web>
+      <web-uri>SysMobPayWS.war</web-uri>
+      <context-root>SysMobPayWS</context-root>
+    </web>
+  </module>
+  <module>
+    <ejb>SysMobPayEJB.jar</ejb>
+  </module>
+  <module>
+    <web>
+      <web-uri>SysMobPayEJBTestWeb.war</web-uri>
+      <context-root>SysMobPayEJBTestWeb</context-root>
+    </web>
+  </module>
+  <module>
+    <web>
+      <web-uri>SysMobPayWEB.war</web-uri>
+      <context-root>SysMobPayWEB</context-root>
+    </web>
+  </module>
+</application>

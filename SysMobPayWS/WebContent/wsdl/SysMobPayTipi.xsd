@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://fri.uni-lj.si/prpo/SysMobPay/tipi" elementFormDefault="qualified" targetNamespace="http://fri.uni-lj.si/prpo/SysMobPay/tipi">
+	<complexType name="SysMobPayTip">
+		<sequence>
+			<element maxOccurs="unbounded" minOccurs="1" name="order" type="tns:WebOrderTip"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="WebOrderTip">
+		<sequence>
+			<element name="order_ID" type="int"/>
+			<element name="price" type="decimal"/>
+			<element name="taxPrice" type="decimal"/>
+			<element name="bonusUsed" type="int"/>
+			<element name="bonusReward" type="int"/>
+			<element name="deliveryName" type="string"/>
+			<element name="dateOfOrder" type="date"/>
+			<element name="user_ID" type="tns:UserTip"/>
+			<element name="deliveryAddressID" type="tns:AddressTip"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="OrderDetailsTip">
+		<sequence>
+			<element maxOccurs="unbounded" minOccurs="1" name="orderDetails" type="tns:DetailsTip"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="DetailsTip">
+		<sequence>
+			<element name="orderdetails_ID" type="int"/>
+			<element name="order_ID" type="tns:WebOrderTip"/>
+			<element name="product_ID" type="tns:ProductTip"/>
+			<element name="unitPrice" type="decimal"/>
+			<element name="quantity" type="int"/>
+			<element name="bonusPoints" type="int"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="ProductTip">
+		<sequence>
+			<element name="product_ID" type="int"/>
+			<element name="company_ID" type="tns:CompanyTip"/>
+			<element name="productName" type="string"/>
+			<element name="description" type="string"/>
+			<element name="price" type="decimal"/>
+			<element name="bonusPoints" type="int"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="CompanyTip">
+		<sequence>
+			<element name="company_ID" type="int"/>
+			<element name="name" type="string"/>
+			<element name="address_ID" type="tns:AddressTip"/>
+			<element name="phone" type="string"/>
+			<element name="email" type="string"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="UserTip">
+		<sequence>
+			<element name="user_ID" type="int"/>
+			<element name="name" type="string"/>
+			<element name="lastname" type="string"/>
+			<element name="phone" type="string"/>
+			<element name="email" type="string"/>
+			<element name="credit" type="decimal"/>
+			<element name="bonusPoints" type="int"/>
+			<element name="maxDaily" type="decimal"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="AddressTip">
+		<sequence>
+			<element name="address_ID" type="int"/>
+			<element name="street" type="string"/>
+			<element name="postalCode" type="string"/>
+			<element name="city" type="string"/>
+			<element name="country" type="string"/>
+			<element name="number" type="int"/>
+			<element name="user_ID" type="tns:UserTip"/>
+		</sequence>
+	</complexType>
+</schema>

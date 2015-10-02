@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="SysMobPayEAR">
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="SysMobPayJPA.jar" deploy-path="/lib" handle="module:/resource/SysMobPayJPA/SysMobPayJPA">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="SysMobPayEJB.jar" deploy-path="/" handle="module:/resource/SysMobPayEJB/SysMobPayEJB">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="SysMobPayEJBClient.jar" deploy-path="/lib" handle="module:/resource/SysMobPayEJBClient/SysMobPayEJBClient">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="SysMobPayEJBTestWeb.war" deploy-path="/" handle="module:/resource/SysMobPayEJBTestWeb/SysMobPayEJBTestWeb">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="SysMobPayWS.war" deploy-path="/" handle="module:/resource/SysMobPayWS/SysMobPayWS">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="SysMobPayWEB.war" deploy-path="/" handle="module:/resource/SysMobPayWEB/SysMobPayWEB">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
